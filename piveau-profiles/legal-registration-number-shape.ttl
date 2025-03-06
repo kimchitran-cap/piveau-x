@@ -1,0 +1,83 @@
+#  Copyright 2024 Dataport. All rights reserved. Developed as part of the MERLOT project.
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+
+@prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix pv: <https://piveau.eu/ns/voc#> .
+
+gx:legalRegistrationNumberShape
+    a sh:NodeShape ;
+    sh:targetClass gx:legalRegistrationNumber ;
+    sh:message "At least one of vatID, EORI or leiCode must be defined." ;
+    sh:property
+        [
+            sh:maxCount 1 ;
+            pv:mappingClass "StandardText" ;
+            pv:mappingName "id" ;
+        ],
+        [
+            sh:path gx:EORI ;
+            sh:maxCount 1 ;  # added by POSSIBLE
+            sh:datatype xsd:string ;
+            sh:minLength 3 ;
+            sh:name "EORI" ;
+            sh:order 2 ;
+            skos:example "e.g., 'DE1234567', 'DE123456789012345'" ;
+            pv:mappingClass "StandardText" ;
+            pv:mappingName "eori" ;
+        ] ;
+    sh:property
+        [
+            sh:path gx:vatID ;
+            sh:maxCount 1 ;  # added by POSSIBLE
+            sh:datatype xsd:string ;
+            sh:minLength 3 ;
+            sh:name "VAT ID" ;
+            sh:order 4 ;
+            skos:example "e.g., 'DE269448547'" ;
+            pv:mappingClass "StandardText" ;
+            pv:mappingName "vat_id" ;
+        ] ;
+    sh:property
+        [
+            sh:path gx:leiCode ;
+            sh:maxCount 1 ;  # added by POSSIBLE
+            sh:datatype xsd:string ;
+            sh:minLength 3 ;
+            sh:name "LEI Code" ;
+            sh:order 0 ;
+            skos:example "e.g., '391200RT75XV0TG47X87'" ;
+            pv:mappingClass "StandardText" ;
+            pv:mappingName "lei_code" ;
+        ] ;
+    sh:or
+        (
+            [
+                    sh:path gx:EORI ;
+                    sh:minCount 1 ;
+                ] [
+                      sh:path gx:vatID ;
+                      sh:minCount 1 ;
+                  ]
+            [
+                sh:path gx:leiCode ;
+                sh:minCount 1 ;
+            ]
+        ) .

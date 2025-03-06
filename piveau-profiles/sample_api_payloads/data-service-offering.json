@@ -1,0 +1,78 @@
+{
+    "@type": [
+        "gx:ServiceOffering",
+        "px:PossibleXServiceOfferingExtension"
+    ],
+    "id": "urn:uuid:a29a5623-bcc8-4f08-a155-97e19e9f5a57",
+    "gx:providedBy": {
+        "id": "did:web:didwebservice.int.possible-x.de:participant:cbf304a3-9ae4-31a5-94da-5795b9d92c5a"
+    },
+    "gx:aggregationOf": [
+        {
+            "@type": "gx:DataResource",
+            "id": "urn:uuid:0364b5ad-96bc-4b86-9281-f2c8bd3d0cba",
+            "gx:copyrightOwnedBy": [
+                "did:web:didwebservice.int.possible-x.de:participant:cbf304a3-9ae4-31a5-94da-5795b9d92c6e",
+                "did:web:didwebservice.int.possible-x.de:participant:c5319037-5d17-3954-a6c0-d86bed74dbf9"
+            ],
+            "gx:producedBy": {
+                "id": "did:web:didwebservice.int.possible-x.de:participant:cbf304a3-9ae4-31a5-94da-5795b9d92c5a"
+            },
+            "gx:exposedThrough": {
+                "id": "urn:uuid:a29a5623-bcc8-4f08-a155-97e19e9f5a57"
+            },
+            "gx:policy": [
+                "{\n  \"@type\": \"odrl:Set\",\n  \"odrl:permission\": [\n    {\n      \"odrl:action\": {\n        \"odrl:type\": \"http://www.w3.org/ns/odrl/2/use\"\n      }\n    },\n    {\n      \"odrl:action\": {\n        \"odrl:type\": \"http://www.w3.org/ns/odrl/2/transfer\"\n      }\n    }\n  ],\n  \"odrl:prohibition\": [],\n  \"odrl:obligation\": []\n}"
+            ],
+            "gx:license": [
+                "AGPL-1.0-only"
+            ],
+            "gx:containsPII": true,
+            "gx:legitimateInterest": {
+                "@type": "gx:LegitimateInterest",
+                "gx:dataProtectionContact": "themail@notexist.com",
+                "gx:legalBasis": "the reason"
+            },
+            "schema:name": "Test Dataset",
+            "schema:description": "This is the data resource description.",
+            "type": "gx:DataResource"
+        }
+    ],
+    "gx:termsAndConditions": [
+        {
+            "gx:URL": "test.eu/tnc",
+            "gx:hash": "hash123"
+        }
+    ],
+    "gx:policy": [
+        "{\n  \"@type\": \"odrl:Set\",\n  \"odrl:permission\": [\n    {\n      \"odrl:action\": {\n        \"odrl:type\": \"http://www.w3.org/ns/odrl/2/use\"\n      }\n    },\n    {\n      \"odrl:action\": {\n        \"odrl:type\": \"http://www.w3.org/ns/odrl/2/transfer\"\n      }\n    }\n  ],\n  \"odrl:prohibition\": [],\n  \"odrl:obligation\": []\n}"
+    ],
+    "gx:dataProtectionRegime": [
+        "GDPR2016"
+    ],
+    "gx:legitimateInterest": [
+        {
+            "gx:legalBasis": "Legal Basis",
+            "gx:dataProtectionContact": "Contract"
+        }
+    ],
+    "gx:dataAccountExport": [
+        {
+            "gx:requestType": "API",
+            "gx:accessType": "digital",
+            "gx:formatType": "application/json"
+        }
+    ],
+    "schema:name": "SteffenServiceOffer222",
+    "schema:description": "steffens test service offer",
+    "gx:name": "SteffenServiceOffer222_2",
+    "gx:description": "This is the service offering description.",
+    "px:assetId": "asset ID",
+    "px:providerUrl": "provider URL",
+    "@context": {
+        "schema": "https://schema.org/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "px": "http://w3id.org/gaia-x/possible-x#",
+        "gx": "https://w3id.org/gaia-x/development#"
+    }
+}

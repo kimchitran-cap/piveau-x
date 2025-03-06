@@ -1,0 +1,66 @@
+{
+    "version": "1",
+    "id": "gaia-x",
+    "resources": [
+        {
+            "id": "service-offering",
+            "description": "A representation of a service offering",
+            "path": "service-offering-shape.ttl",
+            "name": "service-offering",
+            "typeUri": "https://w3id.org/gaia-x/development#ServiceOffering",
+            "shapeUri": "https://w3id.org/gaia-x/development#ServiceOfferingShape",
+            "searchSettings": {
+                "max_agg_size": 50,
+                "max_result_window": 10000,
+                "facets": [
+                    {
+                        "name": "keyword",
+                        "title": "Keyword",
+                        "path": "keyword"
+                    }
+                ],
+                "searchParams": []
+            }
+        },
+        {
+            "id": "data-product",
+            "description": "A representation of a data product",
+            "path": "data-product-shape.ttl",
+            "name": "data-product",
+            "typeUri": "http://w3id.org/gaia-x/possible-x#DataProduct",
+            "shapeUri": "http://w3id.org/gaia-x/possible-x#DataProductShape",
+            "searchSettings": {
+                "max_agg_size": 50,
+                "max_result_window": 10000,
+                "facets": [
+                    {
+                        "name": "keyword",
+                        "title": "Keyword",
+                        "path": "keyword"
+                    }
+                ],
+                "searchParams": []
+            }
+        },
+        {
+            "id": "legal-participant",
+            "description": "A representation of a legal participant",
+            "path": "legal-participant-shape.ttl",
+            "name": "legal-participant",
+            "typeUri": "https://w3id.org/gaia-x/development#LegalParticipant",
+            "shapeUri": "https://w3id.org/gaia-x/development#LegalParticipantShape",
+            "searchSettings": {
+                "max_agg_size": 50,
+                "max_result_window": 10000,
+                "facets": [
+                    {
+                        "name": "keyword",
+                        "title": "Keyword",
+                        "path": "keyword"
+                    }
+                ],
+                "searchParams": []
+            }
+        }
+    ]
+}

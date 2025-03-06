@@ -1,0 +1,41 @@
+{
+    "@context": {
+        "gx": "https://w3id.org/gaia-x/development#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "px": "http://w3id.org/gaia-x/possible-x#",
+        "schema": "https://schema.org/"
+    },
+    "@type": [
+        "gx:LegalParticipant", 
+        "px:PossibleXLegalParticipantExtension"
+    ],
+    "id": "did:web:didwebservice.int.possible-x.de:participant:cbf304a3-9ae4-31a5-94da-5795b9d92c5a",
+    "schema:name": "Fraunhofer FOKUS",
+    "schema:description": "Testing new description for Fraunhofer FOKUS",
+    "px:mailAddress": "ValidEmail_123@Domain-Name.org",
+    "gx:legalRegistrationNumber": {
+        "@type": "gx:legalRegistrationNumber",
+        "gx:vatID": "DE815563912"
+    },
+    "gx:legalAddress": {
+        "@type": "vcard:Address",
+        "gx:countryCode": "DE",
+        "gx:countrySubdivisionCode": "DE-BE",
+        "vcard:street-address": "Legal Address Street 123",
+        "vcard:postal-code": "12345",
+        "vcard:locality": "Berlin"
+    },
+    "gx:headquarterAddress": {
+        "@type": "vcard:Address",
+        "gx:countryCode": "DE",
+        "gx:countrySubdivisionCode": "DE-BE",
+        "vcard:street-address": "Headquarter Address Street 123",
+        "vcard:postal-code": "12345",
+        "vcard:locality": "Berlin"
+    }
+}
