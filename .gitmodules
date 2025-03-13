@@ -1,12 +1,9 @@
-[submodule "possible-x-piveau-ui"]
-	path = possible-x-piveau-ui
-	url = https://github.com/Dataport/possible-x-piveau-ui
 [submodule "possible-x-did-web-service"]
 	path = possible-x-did-web-service
 	url = https://github.com/Dataport/possible-x-did-web-service
-[submodule "piveau-hub-repo"]
-	path = piveau-hub-repo
-	url = https://gitlab.fokus.fraunhofer.de/piveau/hub/piveau-hub-repo
-[submodule "piveau-hub-search"]
-	path = piveau-hub-search
-	url = https://gitlab.fokus.fraunhofer.de/piveau/hub/piveau-hub-search
+[submodule "possible-x-piveau-ui"]
+	path = possible-x-piveau-ui
+	url = https://github.com/Dataport/possible-x-piveau-ui
+[submodule "possible-x-signing-service"]
+	path = possible-x-signing-service
+	url = https://github.com/Dataport/possible-x-signing-service

@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  piveau-ui:
+  piveau-hub-ui:
     build:
-      context: ./piveau-ui
+      context: ./piveau-hub-ui
       dockerfile: Dockerfile
     container_name: piveau-ui
     logging:
@@ -14,14 +14,16 @@ services:
     environment:
       - NODE_ENV=production
 
-  signing-service:
-    image: normalization-urdna2015
-    container_name: signing-service
+  possible-x-signing-service:
+    build:
+      context: ./possible-x-signing-service
+      dockerfile: Dockerfile
+    container_name: possible-x-signing-service
     logging:
       options:
-        max-size: \"50m\"
+        max-size: "50m"
     ports:
-      - \"2021:2021\"
+      - "2020:2020"
     environment:
       - FLASK_PRIVATE_KEY=${FLASK_PRIVATE_KEY}
 
@@ -40,6 +42,8 @@ services:
       - PIVEAU_TRIPLESTORE_CONFIG={"address":"http://virtuoso:8890","clearGeoDataCatalogues":["*"]}
       - PIVEAU_HUB_VALIDATOR={"enabled":true,"metricsPipeName":"metrics","history":false}
       - PIVEAU_HUB_SEARCH_SERVICE={"enabled":true,"url":"piveau-hub-search","port":8080,"api_key":"yourSearchApiKey"}
+      - PIVEAU_FEATURE_FLAGS={"piveau_profile":true}
+      - PIVEAU_PROFILE={"type":"directory","path":"/path/to/my/profile/my-profile"}
       - JAVA_OPTS=-Xms1g -Xmx2g
     volumes:
       - ./pipes:/usr/verticles/pipes
@@ -60,6 +64,8 @@ services:
       - PIVEAU_HUB_SEARCH_API_KEY=yourSearchApiKey
       - PIVEAU_HUB_SEARCH_ES_CONFIG={"host":"elasticsearch","port":9200}
       - PIVEAU_HUB_SEARCH_GAZETTEER_CONFIG={"url":"http://doesnotmatter.eu"}
+      - PIVEAU_FEATURE_FLAGS={"piveau_profile":true}
+      - PIVEAU_PROFILE={"type":"directory","path":"/path/to/my/profile/my-profile"}
       - JAVA_OPTS=-Xms1g -Xmx2g
 
   virtuoso:
