@@ -21,9 +21,52 @@ piveau-x/
 
 After cloning the repository, you need to configure several components to ensure proper functioning of the piveau-X platform. Each component requires specific settings as detailed in the following sections.
 
-### DID
+### DID Web Service
 
+A Decentralized Identifier (DID) is required to participate in the Gaia-X ecosystem as a Legal Participant and to sign Verifiable Credentials (VCs). The DID Web Service creates and manages DIDs using the did:web method, which associates identifiers with web domains.
 
+To use the DID Web Service, you need:
+- A domain name that you control (e.g., your-domain.com)
+- An SSL certificate for that domain (required for HTTPS)
+- The corresponding private key for the certificate
+
+Configure the DID Web Service in `possible-x-did-web-service/src/main/resources/application.yml`:
+   ```yaml
+   # Set your domain for DID creation
+   did-web-domain: "your-domain.com"
+   
+   # Configure SSL (required for did:web)
+   server:
+     ssl:
+       key-store: classpath:keystore.p12  # Replace with your keystore
+       key-store-password: "your-password"
+       key-store-type: PKCS12
+       key-alias: tomcat
+       enabled: true
+   ```
+
+Replace the default `keystore.p12` file in `src/main/resources` with your own SSL certificate and private key.
+
+Now create a new DID by making a POST request to the service:
+
+- **POST `/internal/didweb`**: Creates a new did:web identity for your organization.
+  - **Request Body:**
+    ```json
+    {
+      "subject": "your-organization-id",
+      "verificationMethods": [
+        {
+          "id": "keys-1",
+          "type": "JsonWebKey2020",
+          "controller": "did:web:your-domain.com:participant:your-organization-id"
+        }
+      ]
+    }
+    ```
+  - **Response:** Returns the newly created DID document containing your DID (e.g., `did:web:your-domain.com:participant:your-organization-id`) and verification methods.
+  - **Usage:** Use the returned DID to configure the Signing Service in the next step.
+
+The response will contain your new DID (e.g., `did:web:your-domain.com:participant:your-organization-id`) and the verification methods. Use this DID to configure the Signing Service.
 
 ### Signing Service
 
