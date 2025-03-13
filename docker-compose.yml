@@ -42,9 +42,9 @@ services:
       - PIVEAU_TRIPLESTORE_CONFIG={"address":"http://virtuoso:8890","clearGeoDataCatalogues":["*"]}
       - PIVEAU_HUB_VALIDATOR={"enabled":true,"metricsPipeName":"metrics","history":false}
       - PIVEAU_HUB_SEARCH_SERVICE={"enabled":true,"url":"piveau-hub-search","port":8080,"api_key":"yourSearchApiKey"}
-      - PIVEAU_FEATURE_FLAGS={"piveau_profile":true}
+      - PIVEAU_FEATURE_FLAGS={"piveau_profile":true,"piveau_trust":true}
       - PIVEAU_PROFILE={"type":"directory","path":"/path/to/my/profile/my-profile"}
-      - PIVEAU_TRUST_CONFIG={"did":"<Organization's did>","addressSignService":"<url of signing service>"}
+      - PIVEAU_TRUST_CONFIG={"did":"<Organization's did>","addressSignService":"http://localhost:2020"}
       - JAVA_OPTS=-Xms1g -Xmx2g
     volumes:
       - ./pipes:/usr/verticles/pipes
