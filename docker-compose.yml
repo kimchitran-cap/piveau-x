@@ -14,6 +14,18 @@ services:
     environment:
       - NODE_ENV=production
 
+  possible-x-did-web-service:
+    build:
+      context: ./possible-x-did-web-service
+      dockerfile: Dockerfile
+    container_name: possible-x-did-web-service
+    logging:
+      options:
+        max-size: "50m"
+    ports:
+      - "8088:8088"
+      - "8443:8443"
+
   possible-x-signing-service:
     build:
       context: ./possible-x-signing-service
