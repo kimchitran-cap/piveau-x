@@ -26,7 +26,6 @@ jobs:
         working-directory: ./piveau-hub-ui
         run: |
           npm ci
-          cp config/user-config.js config/user-config.js
           npm run build
 
       - name: Log in to the Container registry
