@@ -2,8 +2,10 @@ import i18n from './i18n';
 
 const glueConfig = {
   api: {
-    baseUrl: 'https://possible.fokus.fraunhofer.de/api/hub/search/',
-    hubUrl: 'https://possible.fokus.fraunhofer.de/api/hub/repo/',
+    baseUrl: 'https://search.catalog.dataspace-training-cg.de/',
+    // baseUrl: 'https://possible.fokus.fraunhofer.de/api/hub/search/',
+    hubUrl: 'https://repo.catalog.dataspace-training-cg.de/',
+    // hubUrl: 'https://possible.fokus.fraunhofer.de/api/hub/repo/',
 
     qualityBaseUrl: '',
 
@@ -81,7 +83,7 @@ const glueConfig = {
     },
   },
   metadata: {
-    title: 'POSSIBLE-X Catalogue',
+    title: 'Capgemini Demo Data Space Catalog',
     description: 'A modern and customizable web application for data management of extensive data catalogs.',
     keywords: 'Open Data',
   },
