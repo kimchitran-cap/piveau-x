@@ -1,0 +1,64 @@
+name: Build
+on:
+  push:
+    branches: [ "main"]
+  workflow_dispatch:
+env:
+  REGISTRY: ghcr.io
+  REGISTRY_NAMESPACE: kimchitran-cap
+jobs:
+  build-and-push-frontend:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies and build frontend
+        working-directory: ./piveau-hub-ui
+        run: |
+          npm ci
+          cp config/user-config.sample.js config/user-config.js
+          npm run build
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          buildkitd-flags: --debug
+
+      - name: Docker "frontend" meta
+        id: frontend-meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.REGISTRY_NAMESPACE }}/piveau-hub-ui
+          tags: |
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main'}}
+            type=raw,value=latest-${{github.ref_name }},enable=${{ github.ref != 'refs/heads/main'}}
+            ${{ github.sha }}
+
+      - name: Build and push "frontend"
+        id: build_and_push_frontend
+        uses: docker/build-push-action@v6
+        with:
+          context: ./piveau-hub-ui/
+          file: ./piveau-hub-ui/Dockerfile
+          push: true
+          tags: ${{ steps.frontend-meta.outputs.tags }}
+          labels: ${{ steps.frontend-meta.outputs.labels }}
+          build-args: |
+            ACTIVEPROFILE=remote

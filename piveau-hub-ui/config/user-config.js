@@ -2,10 +2,11 @@ import i18n from './i18n';
 
 const glueConfig = {
   api: {
-    baseUrl: 'https://possible.fokus.fraunhofer.de/api/hub/search/',
-
-    hubUrl: 'https://possible.fokus.fraunhofer.de/api/hub/repo/',
-
+    baseUrl: 'https://search.catalog.dataspace-training-cg.de/',
+    // baseUrl: 'https://possible.fokus.fraunhofer.de/api/hub/search/',
+    hubUrl: 'https://repo.catalog.dataspace-training-cg.de/',
+    // hubUrl: 'https://possible.fokus.fraunhofer.de/api/hub/repo/',
+ 
     qualityBaseUrl: 'https://piveau-metrics-cache-piveau.apps.osc.fokus.fraunhofer.de/',
 
     similarityEndpoint: 'similarities',
@@ -91,7 +92,7 @@ const glueConfig = {
     },
   },
   metadata: {
-    title: 'piveau Hub-UI',
+    title: 'Capgemini Demo Data Space Catalog',
     description: 'A modern and customizable web application for data management of extensive data catalogs.',
     keywords: 'Open Data',
   },
@@ -122,7 +123,7 @@ const glueConfig = {
       },
     },
     resourceDetails: {
-      customResources: ["serviceOfferings", "dataProducts", "legalParticipants"]
+      customResources: ["legalPersons", "serviceOfferings", "dataProducts", "legalParticipants"]
     },
     datasets: {
       useSort: true,

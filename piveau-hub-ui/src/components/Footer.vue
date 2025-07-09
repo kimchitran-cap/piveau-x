@@ -4,22 +4,19 @@
   <div id="piveau-footer" class="p-0 pt-5 d-flex">
 
     <div class="w-33">
-      <img src="@/assets/img/possible_x_footer.svg" width="190">
+      <img src="@/assets/img/capgemini_white.png" width="190" class="ml-4">
     </div>
 
     <div class="w-33">
-      <h4>POSSIBLE-X Catalogue</h4>
-      <div>© 2025 Fraunhofer FOKUS</div>
+      <h4>Capgemini Demo Data Space Catalogue</h4>
+      <div>© 2025 Capgemini</div>
     </div>
 
     <div class="w-33">
       <h4>Information</h4>
       <ul>
         <li class="mb-2">
-          <a href="https://www.possible-gaia-x.eu/" target="_blank">POSSIBLE Project</a>
-        </li>
-        <li class="mb-2">
-          <router-link to="/imprint">Impressum</router-link> | <router-link to="/privacypolicy">Datenschutz</router-link>
+          <router-link to="/imprint">Impressum</router-link>
         </li>
       </ul>
     </div>
