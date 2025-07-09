@@ -23,10 +23,10 @@ FROM nginx:alpine
 # Copy built files from builder stage
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 8080
+EXPOSE 8080
 
-# Copy custom nginx config to use port 3000
+# Copy custom nginx config to use port 8080
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Start nginx
