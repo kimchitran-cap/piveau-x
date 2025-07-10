@@ -22,12 +22,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies and build frontend
-        working-directory: ./piveau-hub-ui
-        run: |
-          npm ci
-          npm run build
-
       - name: Log in to the Container registry
         uses: docker/login-action@v2
         with:
